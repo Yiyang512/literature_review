@@ -1,10 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta name="color-scheme" content="dark">
-  <title>Learning to Hear French: Auditory Discrimination and Second-Language Listening | Simple French with Hems</title>
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
@@ -2369,65 +2363,6 @@
 @media (max-width:720px){ #hems-market-review .stat-grid,#hems-market-review .contrast-grid,#hems-market-review .listen-pipeline,#hems-market-review .training-ladder{grid-template-columns:1fr;} #hems-market-review .speech-row{grid-template-columns:1fr;gap:5px;} }
 </style>
 
-<style id="sfwh-host-page-fixes">
-  html,
-  body {
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    max-width: 100%;
-    min-width: 0;
-    background: #000000;
-    overflow-x: hidden;
-  }
-
-  body {
-    min-height: 100%;
-  }
-
-  #hems-market-review {
-    width: 100%;
-    max-width: 100%;
-    min-width: 0;
-  }
-
-  #hems-market-review img,
-  #hems-market-review video,
-  #hems-market-review svg,
-  #hems-market-review canvas {
-    max-width: 100%;
-    height: auto;
-  }
-
-  #hems-market-review .table-wrap,
-  #hems-market-review .evidence-matrix,
-  #hems-market-review .evidence-table {
-    max-width: 100%;
-    -webkit-overflow-scrolling: touch;
-  }
-
-  @media (max-width: 720px) {
-    #hems-market-review .journal-bar,
-    #hems-market-review .hero,
-    #hems-market-review .page-grid,
-    #hems-market-review .footer-inner {
-      width: min(calc(100% - 24px), var(--content-width, 1180px));
-    }
-
-    #hems-market-review .page-grid {
-      padding-top: 28px;
-      padding-bottom: 64px;
-    }
-
-    #hems-market-review .section,
-    #hems-market-review .takeaway,
-    #hems-market-review .references {
-      scroll-margin-top: 12px;
-    }
-  }
-</style>
-</head>
-<body>
 <main id="hems-market-review">
   <a class="skip-link" href="#review-content">Skip to article</a>
   <div class="page-grid" id="review-content">
@@ -2662,74 +2597,3 @@
     </article>
   </div>
 </main>
-
-<script id="sfwh-iframe-autoheight">
-(function () {
-  'use strict';
-
-  const MESSAGE_TYPE = 'sfwh:iframe-height';
-  let lastHeight = 0;
-  let scheduled = false;
-
-  function getDocumentHeight() {
-    const body = document.body;
-    const root = document.documentElement;
-
-    return Math.ceil(Math.max(
-      body ? body.scrollHeight : 0,
-      body ? body.offsetHeight : 0,
-      root ? root.scrollHeight : 0,
-      root ? root.offsetHeight : 0,
-      root ? root.clientHeight : 0
-    ));
-  }
-
-  function sendHeight() {
-    scheduled = false;
-    const height = getDocumentHeight();
-
-    if (!height || Math.abs(height - lastHeight) < 2) return;
-    lastHeight = height;
-
-    window.parent.postMessage({
-      type: MESSAGE_TYPE,
-      height: height,
-      path: window.location.pathname
-    }, '*');
-  }
-
-  function queueHeightUpdate() {
-    if (scheduled) return;
-    scheduled = true;
-    window.requestAnimationFrame(sendHeight);
-  }
-
-  window.addEventListener('load', queueHeightUpdate, { passive: true });
-  window.addEventListener('resize', queueHeightUpdate, { passive: true });
-  window.addEventListener('orientationchange', queueHeightUpdate, { passive: true });
-
-  if (document.fonts && document.fonts.ready) {
-    document.fonts.ready.then(queueHeightUpdate).catch(function () {});
-  }
-
-  if ('ResizeObserver' in window) {
-    const resizeObserver = new ResizeObserver(queueHeightUpdate);
-    resizeObserver.observe(document.documentElement);
-  }
-
-  if ('MutationObserver' in window) {
-    const mutationObserver = new MutationObserver(queueHeightUpdate);
-    mutationObserver.observe(document.documentElement, {
-      childList: true,
-      subtree: true,
-      characterData: true
-    });
-  }
-
-  [0, 250, 750, 1500, 3000].forEach(function (delay) {
-    window.setTimeout(queueHeightUpdate, delay);
-  });
-})();
-</script>
-</body>
-</html>
